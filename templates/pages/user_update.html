@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid  dashboard-content">
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-header">
+                    <h2 class="pageheader-title">Library user update form</h2>
+                    <div class="page-breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+{#                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>#}
+{#                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>#}
+{#                                <li class="breadcrumb-item active" aria-current="page">Form Validations</li>#}
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- ============================================================== -->
+            <!-- validation form -->
+            <!-- ============================================================== -->
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    <h5 class="card-header">Update form</h5>
+                    <div class="card-body">
+                        <form class="needs-validation" novalidate action="{% url 'main:update_user' object.pk %}" method="POST" >
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end validation form -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+{% endblock %}

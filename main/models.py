@@ -6,9 +6,8 @@ from django.db import models
 
 class LibUser(models.Model):
     full_name = models.CharField(max_length=128, verbose_name='Full name')
-    phone_regex = RegexValidator(regex=r'^\d{9}$',
-                                 message="Up to 13 digits allowed.")
-    phone = models.CharField(validators=[phone_regex], max_length=13)
+
+    phone = models.CharField( max_length=13)
     email = models.EmailField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

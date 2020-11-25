@@ -9,7 +9,9 @@ app_name = "main"
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('user/create/', views.CreateCustomUserView.as_view(), name='create_user')
+    path('users/', views.user_list, name='users'),
+    path('user/create/', views.CreateCustomUserView.as_view(), name='create_user'),
+    path('user/<int:pk>/update/', views.UpdateCustomUserView.as_view(), name='update_user')
 ]
 
 
